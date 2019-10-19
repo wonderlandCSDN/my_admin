@@ -1,20 +1,26 @@
 <template>
     <div class="loginBox">
        <div class="loginMain">
-           <div class="loginMain_left"></div>
+           <div class="loginMain_left">
+               
+           </div>
            <div class="loginMain_right">
-               <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0" class="demo-ruleForm">
+               <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0" class="demo-ruleForm form_box">
                     <el-form-item  prop="name">
-                        <el-input v-model="ruleForm.name" placeholder="请输入账号" ></el-input>
+                        <el-input v-model="ruleForm.name" placeholder="请输入账号" prefix-icon="el-icon-user"></el-input>
                     </el-form-item>
                     <el-form-item prop="password">
-                        <el-input v-model="ruleForm.password" show-password placeholder="请输入密码"></el-input>
+                        <el-input v-model="ruleForm.password" show-password placeholder="请输入密码" prefix-icon="el-icon-lock"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button @click="resetForm('ruleForm')">重置</el-button>
-                        <el-button type="primary" @click="submitForm('ruleForm')">确定</el-button>
+                        <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
+                        <el-button type="primary" @click="submitForm('ruleForm')" class="login_btn">登录</el-button>
                     </el-form-item>
                 </el-form>
+                <div class="register_box">
+                    <router-link class="registerTip" :to="{name: 'register', path: 'register'}">注册</router-link>
+                    <router-link class="pwdTip" :to="123">忘记密码？</router-link>
+                </div>
            </div>
        </div>
     </div>
@@ -28,6 +34,7 @@ export default {
     },
     data(){
         return{
+             input: '',
             ruleForm: {
                 name: '',
                 password: ''

@@ -6,7 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 /**
  * 开发模式：npm run dev是前端自己开发用的
  * 生产模式：npm run build 打包之后给后端放在服务端上用的
