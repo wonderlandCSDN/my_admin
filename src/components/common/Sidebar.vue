@@ -1,0 +1,80 @@
+<template>
+<div class="sidebar_box">
+    <el-menu v-loading="listLoading" default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+        <template v-for="item in menu">
+            <template v-if="item.children">
+                <el-submenu :index="item.code" :key="item.code">
+                    <template slot="title">
+                        <i :class="['iconfont',item.icon]"></i>
+                        <span slot="title">{{item.name}}</span>
+                    </template>
+                    <template v-for="subItem in item.children">
+                        <el-submenu v-if="subItem.children && subItem.children.length > 0" :index="subItem.code" :key="subItem.code">
+                            <template slot="title">
+                                <i :class="['iconfont',subItem.icon]"></i>
+                                <span slot="title">{{subItem.name}}</span>
+                            </template>
+                            <el-menu-item v-for="threeItem in subItem.children" :index="threeItem.code" :key="threeItem.code">
+                                <i :class="['iconfont',threeItem.icon]"></i>
+                                <span slot="title">{{threeItem.name}}</span>
+                            </el-menu-item>
+                        </el-submenu>
+                        <el-menu-item v-else :index="subItem.code" :key="subItem.code">
+                            <i :class="['iconfont',subItem.icon]"></i>
+                            <span slot="title">{{subItem.name}}</span>
+                        </el-menu-item>
+                    </template>
+                </el-submenu>
+            </template>
+            <template v-else>
+                <el-menu-item  :index="item.code" :key="item.code">
+                    <i :class="['iconfont',item.icon]"></i>
+                    <span slot="title">{{item.name}}</span>
+                </el-menu-item>
+            </template>
+        </template>
+    </el-menu>
+</div>
+</template>
+
+<script>
+import Menu from '../../assets/data/menu'
+export default {
+    name: 'sidebar',
+    data() {
+        return {
+            menu: [],
+            listLoading: false,
+        }
+    },
+    //组件
+    components: {
+    },
+    props: {
+    },
+    watch: {
+    },
+    computed: { 
+    },
+    created() {
+    },
+    mounted() {
+        this.init();
+    },
+    methods: { 
+        init () {
+            this.menu = Menu;
+        },
+        handleOpen(key, keyPath) {
+            console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+            console.log(key, keyPath);
+        }
+    },
+}
+</script>
+
+<style lang='scss' rel='stylesheet/scss' scoped>
+    @import '../../sass/base/sidebar.scss'
+</style>

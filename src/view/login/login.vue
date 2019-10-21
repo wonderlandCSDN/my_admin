@@ -14,7 +14,7 @@
                     </el-form-item>
                     <el-form-item>
                         <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
-                        <el-button type="primary" @click="submitForm('ruleForm')" class="login_btn">登录</el-button>
+                        <el-button type="primary" @click="submitForm('ruleForm')" class="login_btn" :loading="login.loading">{{login.text}}</el-button>
                     </el-form-item>
                 </el-form>
                 <div class="register_box">
@@ -34,7 +34,7 @@ export default {
     },
     data(){
         return{
-             input: '',
+            input: '',
             ruleForm: {
                 name: '',
                 password: ''
@@ -48,7 +48,12 @@ export default {
                     { required: true, message: '请输入密码', trigger: 'blur' },
                     { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
                 ],
-          }
+            },
+            login:{
+                loading: false,
+                text: '登录'
+            }
+            
         }
     },
     props: {
@@ -63,11 +68,17 @@ export default {
     },
     methods: { 
         submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
+            const _that = this;
+            _that.$refs[formName].validate((valid) => {
                 if (valid) {
-                    alert('submit!');
+                    _that.login.loading = true;
+                    _that.login.text = '登录中'
+                    setTimeout(() => {
+                        _that.login.loading = false;
+                        _that.login.text = '登录成功';
+                        _that.$router.push({path: '/home'});
+                    }, 1000);
                 } else {
-                    console.log('error submit!!');
                     return false;
                 }
             });

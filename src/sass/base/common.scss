@@ -1,3 +1,4 @@
+/************************************************样式初始化设置******************************************************/
 html, body { height: 100%;}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,3 +72,13 @@ p { line-height:1.5em }
     #content { padding:30px; background:#fff; min-height:500px; }
 
 footer { padding:15px 0; font-size:11px; text-align:center; color:#777 }
+
+/******************************************************主页样式**********************************************************/
+.content_box{
+    position: absolute;
+    left: 240px;
+    right: 0;
+    top: 70px;
+    bottom: 0px;
+    background: #ccc;
+}

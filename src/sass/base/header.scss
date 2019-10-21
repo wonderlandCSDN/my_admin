@@ -1,0 +1,20 @@
+@import '../base/skinConfig.scss';
+.header_box{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    font-size: 22px;
+    color: $themColor;
+    border-bottom:1px solid #e6e6e6;
+    background-color: #fff;
+    .left_box{
+        width: 75%;
+        padding-left: 20px;
+    }
+    .right_box{
+        width: 25%;
+        padding-right: 20px;
+    }
+}
