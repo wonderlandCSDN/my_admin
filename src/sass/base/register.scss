@@ -1,0 +1,32 @@
+@import "../base/skinConfig.scss";
+.register_box{
+    position: relative;
+    .header_reg{
+        height: 150px;
+        border-bottom: 2px solid $themColor;
+    }
+
+    .content_reg{
+        height: 650px;
+        width: 50%;
+        margin: auto;
+        .form_box{
+            padding-top: 20px;
+        }
+        .btn{
+            float: right; 
+            padding: 3px 0;
+            color:#409EFF;
+        }
+        .icon{
+            font-size: 18px;
+            // border: 1px solid #000;
+        }
+        
+    }
+
+    .footer_reg{
+        height: 150px;
+        border-top: 2px solid $themColor;
+    }
+}
