@@ -3,13 +3,13 @@ const menu = [
         name: '导航一',
         id: '1',
         icon: 'icon-fangdichanjianzhu',
-        code: '1',
+        code: '',
         children: [
             {
                 name: '选项1',
                 id: '1-1',
                 icon: '',
-                code: '1-1',
+                code: 'test',
                 children: []
             },
             {

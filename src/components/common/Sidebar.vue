@@ -1,6 +1,6 @@
 <template>
 <div class="sidebar_box">
-    <el-menu v-loading="listLoading" :collapse="isCollapse" default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+    <el-menu v-loading="listLoading" :collapse="isCollapse" default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router>
         <template v-for="item in menu">
             <template v-if="item.children">
                 <el-submenu :index="item.code" :key="item.code">
