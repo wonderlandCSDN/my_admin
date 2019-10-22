@@ -65,7 +65,7 @@ const menu = [
     {
         name: '导航四',
         id: '4',
-        icon: 'icon-zhanghaoguanli',
+        icon: 'icon-xitong-gongnengpeizhi',
         code: '4'
     }
 ];

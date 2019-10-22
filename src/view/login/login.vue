@@ -28,7 +28,7 @@
 
 <script>
 export default {
-    name: 'login',
+    name: 'Login',
     //组件
     components: {
     },

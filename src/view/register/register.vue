@@ -67,7 +67,7 @@
 
 <script>
 export default {
-name: 'register',
+name: 'Register',
 data() {
     return {
         ruleForm: {

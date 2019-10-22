@@ -1,7 +1,7 @@
 <template>
 <div class="header_box">
     <div class="left_box">
-        <i class="iconfont icon-caidanfenlei menu_icon"></i>
+        <i class="iconfont icon-caidanfenlei menu_icon" @click="collapseChange"></i>
         <span>logo图标</span>
     </div>
     <div class="right_box" align="right">
@@ -11,11 +11,15 @@
 </template>
 
 <script>
+
+import Bus from '../../bus/bus.js'
+
 export default {
-    name: 'header',
+    name: 'Header',
     data() {
         return {
-            name: 'header 个人信息 | 登录名 '
+            name: 'header 个人信息 | 登录名 ',
+            isCollapse: false,
         }
     },
     //组件
@@ -32,6 +36,11 @@ export default {
     mounted() {
     },
     methods: { 
+        collapseChange(){
+            const _that = this;
+            _that.isCollapse = !_that.isCollapse;
+            Bus.$emit('collapse', _that.isCollapse);
+        }
     },
 }
 </script>
