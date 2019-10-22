@@ -53,13 +53,13 @@ const menu = [
     {
         name: '导航二',
         id: '2',
-        icon: 'icon-juzhenguanli',
+        icon: 'icon-guanligudong',
         code: '2'
     },
     {
         name: '导航三',
         id: '3',
-        icon: 'icon-shujutongji1',
+        icon: 'icon-ciricaipintoupiao',
         code: '3'
     },
     {

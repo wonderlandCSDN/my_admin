@@ -1,10 +1,11 @@
 <template>
 <div class="header_box">
     <div class="left_box">
+        <i class="iconfont icon-caidanfenlei menu_icon"></i>
         <span>logo图标</span>
     </div>
     <div class="right_box" align="right">
-        header 个人信息 | 登录名  
+        {{name}}
     </div>
 </div>
 </template>
@@ -13,7 +14,9 @@
 export default {
     name: 'header',
     data() {
-        return {}
+        return {
+            name: 'header 个人信息 | 登录名 '
+        }
     },
     //组件
     components: {

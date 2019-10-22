@@ -12,6 +12,11 @@
     .left_box{
         width: 75%;
         padding-left: 20px;
+        .menu_icon{
+            font-size: 25px;
+            margin-right: 6px;
+            cursor: pointer;
+        }
     }
     .right_box{
         width: 25%;
