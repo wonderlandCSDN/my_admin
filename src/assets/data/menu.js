@@ -22,7 +22,7 @@ const menu = [
                         name: '选项2-1',
                         id: '1-2-1',
                         icon: '',
-                        code: '1-2-1',
+                        code: 'informations',
                         children: []
                     },
                     {

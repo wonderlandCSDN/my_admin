@@ -3,6 +3,7 @@
         <v-header></v-header>
         <v-sidebar></v-sidebar>
         <div :class="['content_box',{'content_collapse':isCollapse}]">
+            <v-tags></v-tags>
             <!-- 非IE使用动画 -->
             <div v-if="isIE"  class="content hx-scroll">
                 <transition name="move" mode="out-in">
@@ -29,6 +30,7 @@
 <script>
 import vHeader from './Header'
 import vSidebar from './Sidebar'
+import vTags from './Tags'
 import Bus from '../../bus/bus.js'
 export default {
     name: 'Home',
@@ -39,7 +41,7 @@ export default {
         }
     },
     //组件
-    components: {vHeader,vSidebar},
+    components: {vHeader,vSidebar,vTags},
     props: {
     },
     watch: {

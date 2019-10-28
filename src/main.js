@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI);
 
-Vue.prototype.$utils = Utils
+Vue.prototype.$utils = Utils;
 
 new Vue({
   el: '#app',

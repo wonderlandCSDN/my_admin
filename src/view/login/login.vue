@@ -7,7 +7,7 @@
            <div class="loginMain_right">
                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0" class="demo-ruleForm form_box">
                     <el-form-item  prop="name">
-                        <el-input v-model="ruleForm.name" placeholder="请输入账号" prefix-icon="el-icon-user"></el-input>
+                        <el-input v-model="ruleForm.name" placeholder="请输入账号" prefix-icon="el-icon-user" clearable></el-input>
                     </el-form-item>
                     <el-form-item prop="password">
                         <el-input v-model="ruleForm.password" show-password placeholder="请输入密码" prefix-icon="el-icon-lock"></el-input>
@@ -19,7 +19,7 @@
                 </el-form>
                 <div class="register_box">
                     <router-link class="registerTip" :to="{name: 'register', path: 'register'}">注册</router-link>
-                    <router-link class="pwdTip" :to="123">忘记密码？</router-link>
+                    <router-link class="pwdTip" :to="{name: 'register', path: 'register'}">忘记密码？</router-link>
                 </div>
            </div>
        </div>

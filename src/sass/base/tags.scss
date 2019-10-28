@@ -1,0 +1,51 @@
+@import '../base/skinConfig.scss';
+.tags{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    height: 30px;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    ul{
+        box-sizing: border-box;
+        width: 94%;
+        height: 30px;
+        .tags_li{
+            float: left;
+            height: 22px;
+            line-height: 22px;
+            border-radius: 3px;
+            margin-top: 3px;
+            margin-left: 8px;
+            padding: 0 5px;
+            border: 1px solid #e6e6e6;
+            .tags-li-icon{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                line-height: 16px;
+                text-align: center;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .tags-li-icon:hover{
+                color: #fff;
+                // background: #35AFFB;
+                background: $themeColor;
+            }
+        }
+        .active{
+            color: $themeColor;
+            border: 1px solid $themeColor;
+        }
+    }
+    .tags_close_box{
+        width: 110px;
+        margin-top: 1.3px;
+        text-align: center;
+        background: #fff;
+        box-shadow: -3px 0 15px 3px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+}

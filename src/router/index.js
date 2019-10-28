@@ -3,16 +3,16 @@ import Router from 'vue-router'
 import Login from '../view/login/Login.vue'
 import Register from '../view/register/Register.vue'
 import Home from '../components/common/Home.vue'
+import Informations from '../view/project/informations.vue'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
+        // 重定向
         {
             path: '/',
-            name: 'login',
-            component: Login,
-            meta: {title: ''}
+            redirect: '/login'
         },
         {
             path: '/login',
@@ -26,6 +26,11 @@ export default new Router({
             component: Register,
             meta: {title: ''}
         },
+        // 重定向
+        { 
+            path: '/home', 
+            redirect: '/informations'
+        },
         {
             path: '/home',
             name: 'home',
@@ -33,10 +38,16 @@ export default new Router({
             meta: {title: '', keepAlive: false},
             children: [
                 {
-                path: '/test',
-                name: 'test',
-                component: Register,
-                meta: {title: '',keepAlive: false}
+                    path: '/test',
+                    name: 'test',
+                    component: Register,
+                    meta: {title: '',keepAlive: false}
+                },
+                {
+                    path: '/informations',
+                    name: 'informations',
+                    component: Informations,
+                    meta: {title: '',keepAlive: false}
                 }
             ]
         }
