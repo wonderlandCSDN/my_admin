@@ -4,8 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import Router from 'vue-router'
 import 'element-ui/lib/theme-chalk/index.css'
 import Utils from './utils/utils'
+
+/** 解决vue在控制台的 NavigationDuplicated 报错（https://blog.csdn.net/gxdvip/article/details/101016946）*/
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 Vue.config.productionTip = false
 /**
@@ -22,9 +29,8 @@ Vue.use(ElementUI);
 
 Vue.prototype.$utils = Utils;
 
+
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app');

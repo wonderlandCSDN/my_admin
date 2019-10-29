@@ -6,7 +6,7 @@ const menu = [
         code: '',
         children: [
             {
-                name: '选项1',
+                name: '测试页面',
                 id: '1-1',
                 icon: '',
                 code: 'test',
@@ -19,7 +19,7 @@ const menu = [
                 code: '1-2',
                 children: [
                     {
-                        name: '选项2-1',
+                        name: '项目信息',
                         id: '1-2-1',
                         icon: '',
                         code: 'informations',

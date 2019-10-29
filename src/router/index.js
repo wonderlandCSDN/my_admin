@@ -41,13 +41,13 @@ export default new Router({
                     path: '/test',
                     name: 'test',
                     component: Register,
-                    meta: {title: '',keepAlive: false}
+                    meta: {title: '测试页面',keepAlive: false}
                 },
                 {
                     path: '/informations',
                     name: 'informations',
                     component: Informations,
-                    meta: {title: '',keepAlive: false}
+                    meta: {title: '项目信息',keepAlive: false}
                 }
             ]
         }
