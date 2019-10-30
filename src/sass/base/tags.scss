@@ -11,7 +11,7 @@
         box-sizing: border-box;
         width: 94%;
         height: 30px;
-        .tags_li{
+        .tags-li{
             float: left;
             height: 22px;
             line-height: 22px;
@@ -20,7 +20,7 @@
             margin-left: 8px;
             padding: 0 5px;
             border: 1px solid #e6e6e6;
-            .tags_li_icon{
+            .tags-li-icon{
                 display: inline-block;
                 width: 16px;
                 height: 16px;
@@ -29,12 +29,12 @@
                 border-radius: 50%;
                 cursor: pointer;
             }
-            .tags_li_icon:hover{
+            .tags-li-icon:hover{
                 color: #fff;
                 background: #666;
             }
         }
-        .tags_li.active{
+        .tags-li.active{
             color: $themeColor;
             border: 1px solid $themeColor;
         }  
@@ -47,15 +47,15 @@
             margin-right: 5px;
             color: #666;
         }
-        .tags_li.active .tags-li-title {
+        .tags-li.active .tags-li-title {
             color: $themeColor;
         }
-        .tags_li.active .tags_li_icon:hover{
+        .tags-li.active .tags-li-icon:hover{
             color: #fff;
             background: $themeColor;
         }
     }
-    .tags_close_box{
+    .tags-close-box{
         width: 110px;
         margin-top: 1.3px;
         text-align: center;

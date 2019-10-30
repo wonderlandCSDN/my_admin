@@ -5,7 +5,7 @@
         <div :class="['content_box',{'content_collapse':isCollapse}]">
             <v-tags></v-tags>
             <!-- 非IE使用动画 -->
-            <div v-if="isIE"  class="content hx-scroll">
+            <div v-if="!isIE"  class="content hx-scroll">
                 <transition name="move" mode="out-in">
                     <keep-alive>
                         <router-view v-if="$route.meta.keepAlive"></router-view>

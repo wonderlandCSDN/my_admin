@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import Router from 'vue-router'
+import Vuex from 'vuex'
+import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css'
 import Utils from './utils/utils'
 
@@ -26,11 +28,13 @@ Vue.config.productionTip = false
  */
 
 Vue.use(ElementUI);
+Vue.use(Vuex);
 
 Vue.prototype.$utils = Utils;
 
 
 new Vue({
   router,
+  store, // 使用store
   render: h => h(App)
 }).$mount('#app');
