@@ -8,6 +8,8 @@ import Router from 'vue-router'
 import Vuex from 'vuex'
 import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css'
+import NProgress from 'nprogress' // Progress 进度条
+import 'nprogress/nprogress.css' // Progress 进度条 样式
 import Utils from './utils/utils'
 
 /** 解决vue在控制台的 NavigationDuplicated 报错（https://blog.csdn.net/gxdvip/article/details/101016946）*/
@@ -31,6 +33,7 @@ Vue.use(ElementUI);
 Vue.use(Vuex);
 
 Vue.prototype.$utils = Utils;
+Vue.prototype.$nprogress = NProgress;
 
 
 new Vue({

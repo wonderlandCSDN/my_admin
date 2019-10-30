@@ -73,10 +73,13 @@ export default {
                 if (valid) {
                     _that.login.loading = true;
                     _that.login.text = '登录中'
+                    _that.$nprogress.start();
                     setTimeout(() => {
                         _that.login.loading = false;
                         _that.login.text = '登录成功';
+                        _that.$nprogress.done();
                         _that.$router.push({path: '/home'});
+                        _that.$message.success('欢迎登录系统！');
                     }, 1000);
                 } else {
                     return false;
