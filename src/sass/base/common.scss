@@ -153,3 +153,15 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-corner {
     background: #E6E6E6;
 }
+
+//vue 使用动画效果
+.move-enter-active,
+.move-leave-active {
+    transition: all 0.5s;
+}
+
+.move-enter,
+.move-leave {
+    opacity: 0;
+    transform: translateX(60px);
+}
