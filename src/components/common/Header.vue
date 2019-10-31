@@ -1,7 +1,10 @@
 <template>
 <div class="header_box">
     <div class="left_box">
-        <i class="iconfont icon-caidanfenlei menu_icon" @click="collapseChange"></i>
+        <span  @click="collapseChange">
+            <i v-if="!isCollapse" class="iconfont icon-weibiaoti25 menu_icon"></i>
+            <i v-else class="iconfont icon-toggle-right menu_icon"></i>
+        </span>
         <span>logo图标</span>
     </div>
     <div class="right_box" align="right">

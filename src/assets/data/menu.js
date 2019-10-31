@@ -26,10 +26,10 @@ const menu = [
                         children: []
                     },
                     {
-                        name: '选项2-2',
+                        name: '项目列表',
                         id: '1-2-2',
                         icon: '',
-                        code: '1-2-2',
+                        code: 'taskList',
                         children: []
                     }
                 ]
@@ -52,7 +52,7 @@ const menu = [
     },
     {
         name: '导航二',
-        id: '2',
+        id: '222',
         icon: 'icon-guanligudong',
         code: '2'
     },

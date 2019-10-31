@@ -1,6 +1,6 @@
 <template>
 <div class="sidebar_box">
-    <el-menu v-loading="listLoading" :collapse="isCollapse" default-active="2" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router>
+    <el-menu v-loading="listLoading" :collapse="isCollapse" :default-active="onRoutes" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router>
         <template v-for="item in menu">
             <template v-if="item.children">
                 <el-submenu :index="item.code" :key="item.code">
@@ -59,6 +59,9 @@ export default {
     watch: {
     },
     computed: { 
+        onRoutes(){
+            return this.$route.path.replace('/',''); 
+        }
     },
     created() {
         const _that = this;
@@ -72,12 +75,6 @@ export default {
     methods: { 
         init () {
             this.menu = Menu;
-        },
-        handleOpen(key, keyPath) {
-            console.log(key, keyPath);
-        },
-        handleClose(key, keyPath) {
-            console.log(key, keyPath);
         }
     },
 }

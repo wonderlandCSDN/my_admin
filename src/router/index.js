@@ -4,6 +4,7 @@ import Login from '../view/login/Login.vue'
 import Register from '../view/register/Register.vue'
 import Home from '../components/common/Home.vue'
 import Informations from '../view/project/informations.vue'
+import TaskList from '../view/project/taskList.vue'
 
 Vue.use(Router)
 
@@ -48,6 +49,12 @@ export default new Router({
                     name: 'informations',
                     component: Informations,
                     meta: {title: '项目信息',keepAlive: false}
+                },
+                {
+                    path: '/taskList',
+                    name: 'taskList',
+                    component: TaskList,
+                    meta: {title: '项目列表',keepAlive: false}
                 }
             ]
         }
