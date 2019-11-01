@@ -2,4 +2,19 @@
 .taskListBox{
     position: relative;
     padding: 15px;
+    .treeBox{
+        .groupBtnsBox{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+            .itemBtn{
+                width: 33.3%;
+            }
+        }
+        .treeCon{
+            margin-top: 10px;
+            max-height: 600px;
+            overflow: auto;
+        }
+    }
 }

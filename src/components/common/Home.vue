@@ -23,6 +23,24 @@
                 </keep-alive>
                 <router-view v-if="!$route.meta.keepAlive"></router-view>
             </div>
+            <!-- 设置按钮 -->
+            <div  :class="['settingBox',{'active': !drawer, 'close':drawer}]" @click="handleSetting">
+                <i v-if="!drawer" class="el-icon-s-tools settingIcon"></i>
+                <i v-else class="el-icon-close settingIcon"></i>
+            </div>
+            <div>
+                <el-drawer 
+                    ref="drawerSetting" 
+                    title="我是标题"
+                    :modal="false" 
+                    :visible.sync="drawer" 
+                    :direction="direction" 
+                    :before-close="beforeCloseFn"  
+                    size="350px"
+                    :show-close="false">
+                    <span>我来啦!</span>
+                </el-drawer>
+            </div>
         </div>
     </div>
 </template>
@@ -38,6 +56,8 @@ export default {
         return {
             isCollapse: false,
             isIE: false,
+            drawer: false,
+            direction: 'rtl',
         }
     },
     //组件
@@ -58,6 +78,23 @@ export default {
         this.isIE = this.$utils.isIE();
     },
     methods: { 
+        handleSetting(){
+            if(!this.drawer){
+                this.drawer = true;
+            }else{
+                console.log(this.$refs['drawerSetting']);
+                this.$refs.drawerSetting.closeDrawer();
+            }
+        },
+
+        beforeCloseFn(done) {
+            done();
+        // this.$confirm('确认关闭？')
+        //   .then(_ => {
+        //     done();
+        //   })
+        //   .catch(_ => {});
+      }
     },
 }
 </script>

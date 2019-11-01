@@ -1,4 +1,6 @@
 /************************************************样式初始化设置******************************************************/
+@import './skinConfig.scss';
+
 html, body { height: 100%;}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -164,4 +166,44 @@ body::-webkit-scrollbar-corner {
 .move-leave {
     opacity: 0;
     transform: translateX(60px);
+}
+
+// 设置按钮
+.settingBox{
+    position: fixed;
+    top: 50%;
+    z-index: 9999;
+    width: 35px;
+    height: 60px;
+    text-align: center;
+    line-height: 65px;
+    cursor: pointer;
+    background: $themeColor;
+    border-radius: 8px 0 0 8px;
+    .settingIcon{
+        font-size: 20px;
+        color: #fff;  
+    }
+}
+.settingBox.active{
+    right: 0;
+}
+.settingBox.close{
+    right: 350px;
+}
+
+//弹框头部标题
+.el-drawer__header{
+    padding: 8px 15px !important;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 25px;
+    border-left: 5px solid $themeColor;
+    border-right: 5px solid $themeColor;
+    border-radius:  0 0px  20px 20px;
+    background: #545C64;
+    box-shadow: 1px 1px 1px $themeColor;
+}
+.el-drawer__body{
+    padding:0 15px !important;
 }

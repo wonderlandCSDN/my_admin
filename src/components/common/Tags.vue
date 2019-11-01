@@ -2,8 +2,9 @@
 <div class="tags" v-if="isShowTags">
     <ul>
         <li v-for="(item, index) in Array.from(tagsList)" :key="index" :class="['tags-li', {'active': isActive(item)}]">
+            
              <router-link :to="item.path" class="tags-li-title">
-               {{item.title}}
+               <span class="active_icon"></span>{{item.title}}
             </router-link>
             <span class="tags-li-icon" @click="closeTags(item)"><i class="el-icon-close"></i></span>
         </li>

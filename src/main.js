@@ -8,6 +8,7 @@ import Router from 'vue-router'
 import Vuex from 'vuex'
 import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css'
+// import './theme/element-variables.scss'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条 样式
 import Utils from './utils/utils'
