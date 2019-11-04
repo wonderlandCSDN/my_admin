@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import tags from './modules/tags/index'
+import tags from './modules/tags/tags'
 
 Vue.use(Vuex);
 
