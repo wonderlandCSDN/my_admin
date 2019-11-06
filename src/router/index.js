@@ -5,6 +5,7 @@ import Register from '../view/register/Register.vue'
 import Home from '../components/common/Home.vue'
 import Informations from '../view/project/informations.vue'
 import TaskList from '../view/project/taskList.vue'
+import Cube from '../view/ThreeJS_3D/cube.vue'
 
 Vue.use(Router)
 
@@ -55,6 +56,12 @@ export default new Router({
                     name: 'taskList',
                     component: TaskList,
                     meta: {title: '项目列表',keepAlive: false}
+                },
+                {
+                    path: '/cube',
+                    name: 'cube',
+                    component: Cube,
+                    meta: {title: '立方体',keepAlive: false}
                 }
             ]
         }

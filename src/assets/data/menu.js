@@ -3,7 +3,7 @@ const menu = [
         name: '导航一',
         id: '1',
         icon: 'icon-fangdichanjianzhu',
-        code: '',
+        code: '1',
         children: [
             {
                 name: '测试页面',
@@ -33,37 +33,32 @@ const menu = [
                         children: []
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        name: 'ThreeJs3D',
+        id: '2',
+        icon: 'icon-guanligudong',
+        code: '2',
+        children:[
             {
-                name: '选项3',
-                id: '1-3',
+                name: '立方体案列',
+                id: '2-1',
                 icon: '',
-                code: '1-3',
-                children: []
-            },
-            {
-                name: '选项4',
-                id: '1-4',
-                icon: '',
-                code: '1-4',
+                code: 'cube',
                 children: []
             }
         ]
     },
     {
-        name: '导航二',
-        id: '222',
-        icon: 'icon-guanligudong',
-        code: '2'
-    },
-    {
-        name: '导航三',
+        name: 'WebGL使用',
         id: '3',
         icon: 'icon-ciricaipintoupiao',
         code: '3'
     },
     {
-        name: '导航四',
+        name: '系统设置',
         id: '4',
         icon: 'icon-xitong-gongnengpeizhi',
         code: '4'
