@@ -43,10 +43,17 @@ const menu = [
         code: '2',
         children:[
             {
-                name: '立方体案列',
+                name: '线立方体',
                 id: '2-1',
                 icon: '',
                 code: 'cube',
+                children: []
+            },
+            {
+                name: '室内场景',
+                id: '2-2',
+                icon: '',
+                code: 'indoorScene',
                 children: []
             }
         ]

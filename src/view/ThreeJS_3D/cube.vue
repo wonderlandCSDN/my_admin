@@ -16,9 +16,11 @@ export default {
             camera: undefined,
             mesh: undefined,
             renderer: undefined,
+            //画线
             sceneL: undefined,
             cameraL: undefined,
-            line: undefined,
+            light: undefined,
+            meshL: undefined,
             rendererL: undefined,
         }
     },
@@ -34,7 +36,8 @@ export default {
     created() {
     },
     mounted() {
-        this.init();
+        const _that = this;
+        _that.init();
     },
     methods: { 
         init(){
@@ -46,7 +49,6 @@ export default {
         cubeFn(){
             // 获取元素
             let cube_box = document.getElementById('cube_box');
-
             // 场景（只有一种）
             this.scene = new three.Scene();
 
@@ -76,32 +78,66 @@ export default {
 
        /**画线 */
        drawingLines(){
-           //获取元素
-           let lines_box = document.getElementById('lines_box');
-
-           //场景
+            this.initScene();
+            this.initCamera();
+            this.initLight();
+            this.initObject();
+            this.initRenderer();
+            this.rendererL.clear();
+            // this.rendererL.render(this.sceneL, this.cameraL);
+            this.animationL();
+       },
+       /**场景 */
+       initScene() {
            this.sceneL = new three.Scene();
-           
-           //相机
-           this.cameraL = new three.PerspectiveCamera(45, lines_box.clientWidth/lines_box.clientHeight, 1, 500);
-           this.cameraL.position.set(0, 1000, 0);
+       },
+       /**相机 */
+       initCamera() {
+           this.cameraL = new three.PerspectiveCamera(45, document.getElementById('lines_box').clientWidth/document.getElementById('lines_box').clientHeight, 1, 10000);
+           this.cameraL.position.set(0, 0, 600);
+           this.cameraL.up.set(0, 1, 0);
            this.cameraL.lookAt(0, 0, 0);
+       },
+       /**light */
+       initLight(){
+           this.light =new three.AmbientLight(0xffffff);
+           this.light.position.set(100, 100, 200);
+           this.sceneL.add(this.light);
 
-           //画线
-           let geometry = new three.Geometry();
-           geometry.vertices.push(new three.Vector3(-100, 0, 100));
-           geometry.vertices.push(new three.Vector3(100, 0, -100));
-        //    geometry.vertices.push(new three.Vector3(0, 0, 10));
-           let material = new three.LineBasicMaterial({ color:0x0000ff }); // { color:0x0000ff }
-           this.line = new three.Line(geometry, material);
-           this.sceneL.add(this.line);
+           this.light = new three.PointLight(0x00FF00);
+           this.light.position.set(0,0,300);
+           this.sceneL.add(this.light);
+       },
+       /**cube */
+       initObject(){
 
+            let geometry = new three.CylinderGeometry(100, 150, 400);
+            geometry.vertices.push( new three.Vector3( -500, 0, 0 ), new three.Vector3( 500, 0, 0 ));
+            let material = new three.MeshLambertMaterial( { color:0x167F29} )
+            this.meshL = new three.Mesh(geometry, material);
+            this.sceneL.add(this.meshL);
+       },
+       /**渲染器 */
+       initRenderer () {
+            this.rendererL = new three.WebGLRenderer({antialias: true});
+            this.rendererL.setSize(document.getElementById('lines_box').clientWidth, document.getElementById('lines_box').clientHeight);
+            document.getElementById('lines_box').appendChild(this.rendererL.domElement);
+            this.rendererL.setClearColor(0xFFFFFF, 1.0);
 
-           //渲染
-           this.rendererL = new three.WebGLRenderer({antialias: true});
-           this.rendererL.setSize(lines_box.innerWidth/lines_box.innerHeight,1, 500);
-           lines_box.appendChild(this.rendererL.domElement);
-           this.rendererL.render(this.sceneL, this.cameraL);
+            /* stats = new Stats();
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+            document.getElementById('lines_box').appendChild(stats.domElement); */
+       },
+       animationL() {
+            //改变相机移动，让物体移动
+            //this.cameraL.position.x = this.cameraL.position.x + 1;
+
+            //改变物体位置，让物体移动
+            this.meshL.position.x +=1;
+            this.rendererL.render(this.sceneL, this.cameraL);
+            requestAnimationFrame(this.animationL);
        }
     },
 }

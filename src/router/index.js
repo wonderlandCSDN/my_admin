@@ -6,6 +6,7 @@ import Home from '../components/common/Home.vue'
 import Informations from '../view/project/informations.vue'
 import TaskList from '../view/project/taskList.vue'
 import Cube from '../view/ThreeJS_3D/cube.vue'
+import IndoorScene from '../view/ThreeJS_3D/indoorScene.vue'
 
 Vue.use(Router)
 
@@ -62,6 +63,12 @@ export default new Router({
                     name: 'cube',
                     component: Cube,
                     meta: {title: '立方体',keepAlive: false}
+                },
+                {
+                    path: '/indoorScene',
+                    name: 'indoorScene',
+                    component: IndoorScene,
+                    meta: {title: '室内场景',keepAlive: false}
                 }
             ]
         }
