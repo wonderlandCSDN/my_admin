@@ -9,7 +9,7 @@
                             <el-button type="primary" icon="el-icon-edit" class="itemBtn" plain>修改</el-button>
                             <el-button type="primary" icon="el-icon-delete" class="itemBtn" plain>删除</el-button>
                         </el-button-group>
-                        <el-button type="primary" icon="el-icon-user" class="authBtn">权限分配</el-button>
+                        <el-button type="primary" icon="el-icon-user" class="authBtn" @click="handleAuthority">权限分配</el-button>
                     </div>
                 </el-card>
             </el-col>
@@ -19,17 +19,28 @@
                 </el-card>
             </el-col>
         </el-row>
+        <el-dialog title="权限分配" :visible="dialogVisible" width="50%">
+            <authority></authority>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+            </span>
+        </el-dialog>
     </div>
 </template>
 
 <script>
+import Authority from '../../components/page/authority'
 export default {
     name: 'roleAuthorityManage',
     data() {
-        return {}
+        return {
+            dialogVisible: false,
+        }
     },
     //组件
     components: {
+        authority: Authority
     },
     props: {
     },
@@ -42,6 +53,9 @@ export default {
     mounted() {
     },
     methods: { 
+        handleAuthority(){
+            this.dialogVisible = true;
+        }
     },
 }
 </script>
