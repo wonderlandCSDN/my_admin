@@ -1,38 +1,38 @@
 <template>
 <div class="taskListBox">
     <el-row :gutter="8">
-    <el-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
-        <el-card shadow="hover">
-            <div class="treeBox">
-                <el-button-group class="groupBtnsBox">
-                    <el-button type="primary" icon="el-icon-plus" class="itemBtn">新增</el-button>
-                    <el-button type="primary" icon="el-icon-edit" class="itemBtn">修改</el-button>
-                    <el-button type="primary" icon="el-icon-delete" class="itemBtn">删除</el-button>
-                </el-button-group>
-                <el-input placeholder="输入关键字进行过滤" v-model="filterText" clearable></el-input>
-                <el-tree
-                    class="filter-tree treeCon hx-scroll"
-                    :data="treeData"
-                    :props="defaultProps"
-                    default-expand-all
-                    :filter-node-method="filterNode"
-                    ref="tree">
-                    <span slot-scope="{node, data}" class="custom-tree-node">
-                        <span>
-                            <i v-if="node.expanded" class="el-icon-folder-opened"></i>
-                            <i v-else class="el-icon-folder"></i>
-                            {{node.label}}
+        <el-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
+            <el-card shadow="hover">
+                <div class="treeBox">
+                    <el-button-group class="groupBtnsBox">
+                        <el-button type="primary" icon="el-icon-plus" class="itemBtn">新增</el-button>
+                        <el-button type="primary" icon="el-icon-edit" class="itemBtn">修改</el-button>
+                        <el-button type="primary" icon="el-icon-delete" class="itemBtn">删除</el-button>
+                    </el-button-group>
+                    <el-input placeholder="输入关键字进行过滤" v-model="filterText" clearable></el-input>
+                    <el-tree
+                        class="filter-tree treeCon hx-scroll"
+                        :data="treeData"
+                        :props="defaultProps"
+                        default-expand-all
+                        :filter-node-method="filterNode"
+                        ref="tree">
+                        <span slot-scope="{node, data}" class="custom-tree-node">
+                            <span>
+                                <i v-if="node.expanded" class="el-icon-folder-opened"></i>
+                                <i v-else class="el-icon-folder"></i>
+                                {{node.label}}
+                            </span>
                         </span>
-                    </span>
-                </el-tree>
-            </div>
-        </el-card>
-    </el-col>
-    <el-col :xs="19" :sm="19" :md="19" :lg="19" :xl="19">
-        <el-card shadow="hover">
-            
-        </el-card>
-    </el-col>
+                    </el-tree>
+                </div>
+            </el-card>
+        </el-col>
+        <el-col :xs="19" :sm="19" :md="19" :lg="19" :xl="19">
+            <el-card shadow="hover">
+                
+            </el-card>
+        </el-col>
     </el-row>
 </div>
 </template>

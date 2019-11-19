@@ -1,0 +1,18 @@
+.roleAuthorityManageBox{
+    position: relative;
+    padding: 15px;
+    .leftBox{
+        .groupBtnsBox{
+            width: 100%;
+            text-align: center;
+            .itemBtn{
+                width: 33.4%;
+            }
+        }
+        .authBtn{
+            margin: 15px 0;
+            width: 100%;
+        }
+        
+    }
+}

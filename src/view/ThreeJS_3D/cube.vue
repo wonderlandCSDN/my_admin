@@ -53,7 +53,7 @@ export default {
             this.scene = new three.Scene();
 
             // 透视相机（three.PerspectiveCamera）
-            this.camera = new three.PerspectiveCamera(70, cube_box.clientWidth/cube_box.clientHeight, 0.01, 1000);
+            this.camera = new three.PerspectiveCamera(70, cube_box.clientWidth / cube_box.clientHeight, 0.01, 1000);
             this.camera.position.z = 0.6;
 
             // 立方体
@@ -65,7 +65,7 @@ export default {
             // 渲染
             this.renderer = new three.WebGLRenderer({antialias: true});
             this.renderer.setSize(cube_box.clientWidth, cube_box.clientHeight);
-            cube_box.appendChild(this.renderer.domElement); // 渲染器renderer的domElement元素，表示渲染器中的画布
+            cube_box.appendChild(this.renderer.domElement); // 渲染器renderer的domElement元素，表示渲染器中的画布lp
         },
 
         /**动画（渲染循环（实时渲染和离线渲染））*/

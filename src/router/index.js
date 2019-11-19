@@ -7,6 +7,7 @@ import Informations from '../view/project/informations.vue'
 import TaskList from '../view/project/taskList.vue'
 import Cube from '../view/ThreeJS_3D/cube.vue'
 import IndoorScene from '../view/ThreeJS_3D/indoorScene.vue'
+import RoleAuthorityManage from '../view/systemSetting/roleAuthorityManage.vue'
 
 Vue.use(Router)
 
@@ -69,6 +70,12 @@ export default new Router({
                     name: 'indoorScene',
                     component: IndoorScene,
                     meta: {title: '室内场景',keepAlive: false}
+                },
+                {
+                    path: '/roleAuthorityManage',
+                    name: 'roleAuthorityManage',
+                    component: RoleAuthorityManage,
+                    meta: {title: '角色权限',keepAlive: false}
                 }
             ]
         }

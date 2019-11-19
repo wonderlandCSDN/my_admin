@@ -68,7 +68,16 @@ const menu = [
         name: '系统设置',
         id: '4',
         icon: 'icon-xitong-gongnengpeizhi',
-        code: '4'
+        code: '4',
+        children:[
+            {
+                name: '角色权限',
+                id: '4-1',
+                icon: '',
+                code: 'roleAuthorityManage',
+                children: []
+            }
+        ]
     }
 ];
 
