@@ -1,16 +1,38 @@
 <template>
     <div class="informations">
-        <el-tree ref="tree"
-                :data="treeMenus"
-                :props="multiProps"
-                :show-checkbox="true"
-                node-key="id"
-                highlight-current
-                default-expand-all
-                :default-checked-keys="checkedId"
-                :check-strictly="true"
-                @check="clickDeal">
-        </el-tree>
+        <el-row :gutter="8">
+            <el-col :xs="7" :sm="7" :md="7" :lg="7" :xl="7">
+                <el-card shadow="nerver">
+                    <el-input placeholder="输入关键字进行过滤" v-model="filterText" clearable></el-input>
+                    <el-tree ref="tree"
+                            :data="treeMenus"
+                            :props="multiProps"
+                            :show-checkbox="true"
+                            node-key="id"
+                            highlight-current
+                            default-expand-all
+                            :filter-node-method="filterNode"
+                            :default-checked-keys="checkedId"
+                            :check-strictly="true"
+                            @check="clickDeal">
+                    </el-tree>
+                </el-card>
+            </el-col>
+            <el-col :xs="17" :sm="17" :md="17" :lg="17" :xl="17">
+                <el-table :data="tableData" stripe style="width: 100%" border highlight-current-row :header-cell-style="this.getRowClass">
+                    
+                    <el-table-column prop="date" label="资源编码" align="center"></el-table-column>
+                    
+                    <el-table-column prop="name" label="资源类型" align="center"></el-table-column>
+                    
+                    <el-table-column prop="address" label="资源名称" align="center"></el-table-column>
+                    <el-table-column prop="address" label="资源地址" align="center"></el-table-column>
+                    <el-table-column prop="address" label="资源请求类型" align="center"></el-table-column>
+                    
+                </el-table>
+            </el-col>
+        </el-row>
+        
     </div>
 </template>
 
@@ -19,6 +41,7 @@ export default {
     name: 'informations',
     data() {
         return {
+            filterText: '',
             checkedId: [],
             treeMenus: [{
                 id: 1,
@@ -104,7 +127,29 @@ export default {
             multiProps: {
                 children: 'children',
                 label: 'label'
-            }
+            },
+            tableData: [
+                {
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, 
+                {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, 
+                {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, 
+                {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }
+            ]
         }
     },
     //组件
@@ -113,6 +158,9 @@ export default {
     props: {
     },
     watch: {
+      filterText(val) {
+        this.$refs.tree.filter(val);
+      }
     },
     computed: { 
     },
@@ -123,6 +171,11 @@ export default {
         this.$refs.tree.setCheckedKeys(this.checkedId)
     },
     methods: {
+        /**过滤树节点*/
+         filterNode(value, data) {
+            if (!value) return true;
+            return data.label.indexOf(value) !== -1;
+        },
         /**      树形菜单复选框点击事件     **/
         clickDeal(currentObj, treeStatus) {
             // 用于：父子节点严格互不关联时，父节点勾选变化时通知子节点同步变化，实现单向关联。
