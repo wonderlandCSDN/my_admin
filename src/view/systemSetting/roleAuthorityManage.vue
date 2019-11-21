@@ -19,7 +19,7 @@
                 </el-card>
             </el-col>
         </el-row>
-        <el-dialog title="权限分配" :visible="dialogVisible" width="60%" @close="dialogVisible = false">
+        <el-dialog title="权限分配" :visible="dialogVisible" width="55%" @close="dialogVisible = false">
             <authority></authority>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Authority from '../../components/page/authority'
+import Authority from '../../components/page/authority/authority'
 export default {
     name: 'roleAuthorityManage',
     data() {

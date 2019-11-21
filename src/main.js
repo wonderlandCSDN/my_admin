@@ -36,6 +36,39 @@ Vue.use(Vuex);
 Vue.prototype.$utils = Utils;
 Vue.prototype.$nprogress = NProgress;
 
+/**
+ * 表格样式
+ * @param row
+ * @param column
+ * @param rowIndex
+ * @param columnIndex
+ * @returns {*}
+ */
+Vue.prototype.getRowClass = function ({row, column, rowIndex, columnIndex}) {
+  if (rowIndex === 0) {
+      return 'background:#eef1f6;color:#333;font-weight:bold;';
+  } else {
+      return '';
+  }
+}
+
+/**使用钩子函数对路由进行权限跳转 */
+let whileList = [];
+router.beforeEach((to, from, next)=>{
+  // NProgress.start();
+  console.log(to);
+  console.log(from);
+  document.title = to.meta.title;
+  alert(11111);
+});
+
+/**全局后置钩子 */
+router.afterEach((to, from)=> {
+  // NProgress.done();
+  alert(2222);
+});
+
+
 
 new Vue({
   router,
