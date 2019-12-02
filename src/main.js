@@ -13,13 +13,17 @@ import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css' // Progress 进度条 样式
 import Utils from './utils/utils'
 
-/** 解决vue在控制台的 NavigationDuplicated 报错（https://blog.csdn.net/gxdvip/article/details/101016946）*/
+/** 解决vue在控制台的 NavigationDuplicated 报错(https://blog.csdn.net/gxdvip/article/details/101016946)*/
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err);
 };
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+/**全局设置element-ui关闭弹框只有点击按钮才会产生效果 */
+ElementUI.Dialog.props.closeOnClickModal.default = false;
+
 /**
  * 开发模式：npm run dev是前端自己开发用的
  * 生产模式：npm run build 打包之后给后端放在服务端上用的
@@ -59,13 +63,14 @@ router.beforeEach((to, from, next)=>{
   console.log(to);
   console.log(from);
   document.title = to.meta.title;
-  alert(11111);
+  next();
+  alert('aaa');
 });
 
 /**全局后置钩子 */
 router.afterEach((to, from)=> {
   // NProgress.done();
-  alert(2222);
+  alert('bbb');
 });
 
 
