@@ -24,6 +24,7 @@ Vue.config.productionTip = false;
 /**全局设置element-ui关闭弹框只有点击按钮才会产生效果 */
 ElementUI.Dialog.props.closeOnClickModal.default = false;
 
+/*******************************************************************************************************************************************/
 /**
  * 开发模式：npm run dev是前端自己开发用的
  * 生产模式：npm run build 打包之后给后端放在服务端上用的
@@ -33,6 +34,56 @@ ElementUI.Dialog.props.closeOnClickModal.default = false;
  * Make sure to turn on production mode when deploying for production
  * 其意思是： 你运行的Vue是开发模式。为生产部署时，请确保启用生产模式。
  */
+
+/*****************************************************************vue-router源码*****************************************************/
+/**
+ * 1、前端路由和后端路由的区别
+ * 后端路由——mvc：输入url——》请求发送到服务器——》服务器解析请求的路径——》拿取对应页面——》返回出去
+ * 前端路由——spa：输入url——》js解析地址——》找到对应地址的页面——》执行页面生成的js——》看到页面
+ *
+ * 2、vue-router工作流程
+ * url改变——》触发监听事件（浏览器上面有监听事件）——》改变vue-router里的current变量——》监视current变量的监视者——》获取新的组件——》Render新组件
+ *
+ * 3、hash和history的使用
+ * 	hash:
+ * （1）#号后的就是hash的内容
+ * （2）可以通过location.hash拿到
+ * （3）可以通过onhashchange监听hash的改变
+ *
+ * 	history:
+ * （1）history即正常的路径
+ * （2）location.pathname
+ * （3）可以用onpopstate监听history变化
+ */
+
+/**
+ * Vue.use()的作用——》它就是把你给它的的东西调用一遍
+ * 如果你给它的是一个方法，那么它就会直接执行方法
+ * 如果你给它的东西里面有一个install属性，那么它会执行这个install
+ * */
+function a () {
+  console.log('qqqq')
+}
+a.install = function (vue) {
+  //全局混入vue实例(就是往vue实例里面混入一些东西)
+  vue.mixin({
+    data() {
+      return{
+        c: 'this is c'
+      }
+    },
+    methods: {
+      // 
+      globalMethods: function () {
+      }
+    },
+    //生命周期的混入
+    
+  });
+}
+Vue.use(a);
+
+/****************************************************************************************************************************************************/
 
 Vue.use(ElementUI);
 Vue.use(Vuex);
@@ -72,8 +123,6 @@ router.afterEach((to, from)=> {
   // NProgress.done();
   alert('bbb');
 });
-
-
 
 new Vue({
   router,

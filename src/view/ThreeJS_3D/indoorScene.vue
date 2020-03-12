@@ -1,6 +1,6 @@
 <template>
     <div class="indoorSceneBox">
-        <h1>室内场景</h1>
+        <h1>室内场景{{c}}</h1>
     </div>
 </template>
 
