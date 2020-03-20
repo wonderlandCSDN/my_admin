@@ -24,7 +24,7 @@ Vue.config.productionTip = false;
 /**全局设置element-ui关闭弹框只有点击按钮才会产生效果 */
 ElementUI.Dialog.props.closeOnClickModal.default = false;
 
-/*******************************************************************************************************************************************/
+/************************************************************************************************************************************/
 /**
  * 开发模式：npm run dev是前端自己开发用的
  * 生产模式：npm run build 打包之后给后端放在服务端上用的
@@ -57,15 +57,24 @@ ElementUI.Dialog.props.closeOnClickModal.default = false;
  */
 
 /**
- * Vue.use()的作用——》它就是把你给它的的东西调用一遍
+ * Vue.use()的作用——>它就是把你给它的的东西调用一遍
  * 如果你给它的是一个方法，那么它就会直接执行方法
  * 如果你给它的东西里面有一个install属性，那么它会执行这个install
  * */
+let test = {
+  testa: 11111
+}
 function a () {
   console.log('qqqq')
 }
 a.install = function (vue) {
   //全局混入vue实例(就是往vue实例里面混入一些东西)
+  // vue 一系列api
+  console.log(vue.util);
+  console.log(vue.util.extend);
+  console.log(vue.extend);
+  //监听
+  vue.util.defineReactive(test, 'testa');
   vue.mixin({
     data() {
       return{
@@ -75,10 +84,17 @@ a.install = function (vue) {
     methods: {
       // 
       globalMethods: function () {
+
       }
     },
+    beforeCreate () {
+      this.test = test;
+    },
     //生命周期的混入
-    
+    created () {
+      
+    }
+
   });
 }
 Vue.use(a);

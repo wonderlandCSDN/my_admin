@@ -1,6 +1,7 @@
 <template>
     <div class="indoorSceneBox">
         <h1>室内场景{{c}}</h1>
+        <h2>{{this.test.testa}}</h2>
     </div>
 </template>
 
